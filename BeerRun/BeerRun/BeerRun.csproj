@@ -54,7 +54,6 @@
     <None Include="Assets\AboutAssets.txt" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\layout\Main.axml" />
     <AndroidResource Include="Resources\values\Strings.xml" />
     <AndroidResource Include="Resources\drawable-hdpi\Icon.png" />
     <AndroidResource Include="Resources\drawable-mdpi\Icon.png" />
@@ -68,5 +67,12 @@
       <Project>{36AF57D3-0AE0-4100-8177-6EEEF2EBCB82}</Project>
       <Name>Implementation</Name>
     </ProjectReference>
+    <ProjectReference Include="..\..\Framework\Framework\Framework.csproj">
+      <Project>{4B9894AE-22A7-422E-8AA0-682B592A1872}</Project>
+      <Name>Framework</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Resources\layout\" />
   </ItemGroup>
 </Project>

@@ -42,7 +42,6 @@
     <Reference Include="Mono.Android" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Resources\Resource.designer.cs" />
     <Compile Include="IAudio.cs" />
     <Compile Include="IFileIO.cs" />
     <Compile Include="IGame.cs" />
@@ -54,12 +53,6 @@
     <Compile Include="ITouchHandler.cs" />
     <Compile Include="Pool.cs" />
     <Compile Include="Screen.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\AboutResources.txt" />
-  </ItemGroup>
-  <ItemGroup>
-    <AndroidResource Include="Resources\values\Strings.xml" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Novell\Novell.MonoDroid.CSharp.targets" />
 </Project>

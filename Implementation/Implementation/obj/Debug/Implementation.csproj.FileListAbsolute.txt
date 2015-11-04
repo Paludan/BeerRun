@@ -8,6 +8,5 @@ C:\Users\Tobias Morell\Documents\GitHub\beerrun\Implementation\Implementation\bi
 C:\Users\Tobias Morell\Documents\GitHub\beerrun\Implementation\Implementation\obj\Debug\Implementation.dll
 C:\Users\Tobias Morell\Documents\GitHub\beerrun\Implementation\Implementation\obj\Debug\Implementation.pdb
 C:\Users\Tobias Morell\Documents\GitHub\beerrun\Implementation\Implementation\obj\Debug\android\bin\Implementation.Implementation.apk
-C:\Users\Tobias Morell\Documents\GitHub\beerrun\Implementation\Implementation\obj\Debug\res\values\strings.xml
 C:\Users\Tobias Morell\Documents\GitHub\beerrun\Implementation\Implementation\obj\Debug\R.cs.flag
 C:\Users\Tobias Morell\Documents\GitHub\beerrun\Implementation\Implementation\obj\Debug\uploadflags.txt
