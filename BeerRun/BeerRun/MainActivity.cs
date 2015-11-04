@@ -7,10 +7,12 @@ using Android.Views;
 using Android.Widget;
 using Android.OS;
 
+using Implementation;
+
 namespace BeerRun
 {
 	[Activity (Label = "BeerRun", MainLauncher = true, Icon = "@drawable/icon")]
-	public class MainActivity : Activity
+	public class MainActivity : AndroidGame
 	{
 		int count = 1;
 
