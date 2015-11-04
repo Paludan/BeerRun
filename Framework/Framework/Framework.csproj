@@ -4,15 +4,15 @@
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectTypeGuids>{EFBA0AD7-5A72-4C68-AF49-83D382785DCF};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
-    <ProjectGuid>{36AF57D3-0AE0-4100-8177-6EEEF2EBCB82}</ProjectGuid>
+    <ProjectGuid>{4B9894AE-22A7-422E-8AA0-682B592A1872}</ProjectGuid>
     <OutputType>Library</OutputType>
-    <RootNamespace>Implementation</RootNamespace>
+    <RootNamespace>Framework</RootNamespace>
     <AndroidResgenFile>Resources\Resource.designer.cs</AndroidResgenFile>
     <AndroidResgenClass>Resource</AndroidResgenClass>
     <MonoAndroidResourcePrefix>Resources</MonoAndroidResourcePrefix>
     <MonoAndroidAssetsPrefix>Assets</MonoAndroidAssetsPrefix>
     <AndroidUseLatestPlatformSdk>True</AndroidUseLatestPlatformSdk>
-    <AssemblyName>Implementation</AssemblyName>
+    <AssemblyName>Framework</AssemblyName>
     <TargetFrameworkVersion>v5.0</TargetFrameworkVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
@@ -43,17 +43,17 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Resources\Resource.designer.cs" />
-    <Compile Include="AndroidAudio.cs" />
-    <Compile Include="AndroidFastRenderView.cs" />
-    <Compile Include="AndroidFileIO.cs" />
-    <Compile Include="AndroidGame.cs" />
-    <Compile Include="AndroidGraphics.cs" />
-    <Compile Include="AndroidImage.cs" />
-    <Compile Include="AndroidInput.cs" />
-    <Compile Include="AndroidMusic.cs" />
-    <Compile Include="AndroidSound.cs" />
-    <Compile Include="JavaLangSystem.cs" />
-    <Compile Include="MultiTouchHandler.cs" />
+    <Compile Include="IAudio.cs" />
+    <Compile Include="IFileIO.cs" />
+    <Compile Include="IGame.cs" />
+    <Compile Include="IGraphics.cs" />
+    <Compile Include="IImage.cs" />
+    <Compile Include="IInput.cs" />
+    <Compile Include="IMusic.cs" />
+    <Compile Include="ISound.cs" />
+    <Compile Include="ITouchHandler.cs" />
+    <Compile Include="Pool.cs" />
+    <Compile Include="Screen.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\AboutResources.txt" />
@@ -62,10 +62,4 @@
     <AndroidResource Include="Resources\values\Strings.xml" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Novell\Novell.MonoDroid.CSharp.targets" />
-  <ItemGroup>
-    <ProjectReference Include="..\..\Framework\Framework\Framework.csproj">
-      <Project>{4B9894AE-22A7-422E-8AA0-682B592A1872}</Project>
-      <Name>Framework</Name>
-    </ProjectReference>
-  </ItemGroup>
 </Project>

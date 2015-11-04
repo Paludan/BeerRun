@@ -1,8 +1,13 @@
 ﻿<Properties StartupItem="BeerRun\BeerRun.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Android.Nexus 5 (Lollipop)" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="BeerRun\MainActivity.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="..\Implementation\Implementation\MultiTouchHandler.cs">
     <Files>
-      <File FileName="BeerRun\MainActivity.cs" Line="8" Column="18" />
+      <File FileName="BeerRun\MainActivity.cs" Line="24" Column="27" />
+      <File FileName="..\Implementation\Implementation\AndroidSound.cs" Line="2" Column="7" />
+      <File FileName="..\Implementation\Implementation\MultiTouchHandler.cs" Line="109" Column="76" />
+      <File FileName="..\Implementation\Implementation\AndroidGraphics.cs" Line="50" Column="14" />
+      <File FileName="..\Implementation\Implementation\AndroidImage.cs" Line="40" Column="11" />
+      <File FileName="..\Implementation\Implementation\AndroidGame.cs" Line="76" Column="20" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

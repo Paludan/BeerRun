@@ -7,7 +7,7 @@ using Android.Views;
 using Android.Widget;
 using Android.OS;
 
-using GameFramework;
+using Framework;
 using Android.Graphics;
 using System.Collections.Generic;
 
@@ -105,8 +105,8 @@ namespace Implementation
 		public bool OnTouch (View v, MotionEvent e)
 		{
 			lock (this) {
-				int action = e.Action & MotionEventActions.Mask;
-				int pointerIndex = (e.Action & MotionEventActions.PointerIdMask >> MotionEventActions.PointerIdShift);
+				MotionEventActions action = e.Action & MotionEventActions.Mask;
+				int pointerIndex = ((int) (e.Action & MotionEventActions.PointerIdMask) >> (int) MotionEventActions.PointerIdShift);
 				int pointerCount = e.PointerCount;
 				TouchEvent touchEvent;
 

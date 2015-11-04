@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BeerRun.UITests", "BeerRun.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Implementation", "..\Implementation\Implementation\Implementation.csproj", "{36AF57D3-0AE0-4100-8177-6EEEF2EBCB82}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Framework", "..\Framework\Framework\Framework.csproj", "{4B9894AE-22A7-422E-8AA0-682B592A1872}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{36AF57D3-0AE0-4100-8177-6EEEF2EBCB82}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{36AF57D3-0AE0-4100-8177-6EEEF2EBCB82}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{36AF57D3-0AE0-4100-8177-6EEEF2EBCB82}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4B9894AE-22A7-422E-8AA0-682B592A1872}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4B9894AE-22A7-422E-8AA0-682B592A1872}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4B9894AE-22A7-422E-8AA0-682B592A1872}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4B9894AE-22A7-422E-8AA0-682B592A1872}.Release|Any CPU.Build.0 = Release|Any CPU
 		{93DE59F6-630A-490A-A42E-A32AD151EF3E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{93DE59F6-630A-490A-A42E-A32AD151EF3E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{93DE59F6-630A-490A-A42E-A32AD151EF3E}.Release|Any CPU.ActiveCfg = Release|Any CPU

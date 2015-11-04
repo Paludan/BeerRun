@@ -1,5 +1,5 @@
 using System;
-using GameFramework;
+using Framework;
 
 using Android.Content.Res;
 using Android.Graphics;
@@ -13,9 +13,9 @@ namespace Implementation
 		public Bitmap Bitmap {
 			get { return bitmap; }
 		}
-		GameFramework.ImageFormat format;
+		Framework.ImageFormat format;
 
-		public AndroidImage (Bitmap bitmap, GameFramework.ImageFormat format)
+		public AndroidImage (Bitmap bitmap, Framework.ImageFormat format)
 		{
 			this.bitmap = bitmap;
 			this.format = format;
@@ -37,7 +37,7 @@ namespace Implementation
 			bitmap.Recycle ();
 		}
 
-		public GameFramework.ImageFormat Format {
+		public Framework.ImageFormat Format {
 			get {
 				return format;
 			}

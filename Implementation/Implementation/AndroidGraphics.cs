@@ -1,5 +1,5 @@
 ﻿using System;
-using GameFramework;
+using Framework;
 
 using Android.Content.Res;
 using Android.Graphics;
@@ -32,22 +32,22 @@ namespace Implementation
 		}
 			
 		#region IGraphics implementation
-		public IImage NewImage (string fileName, GameFramework.ImageFormat format)
+		public IImage NewImage (string fileName, Framework.ImageFormat format)
 		{
 			//Handles options and configuration for the desired image
 			Bitmap.Config config = null; 
 			switch (format) {
-			case GameFramework.ImageFormat.ARGB4444:
+			case Framework.ImageFormat.ARGB4444:
 				config = Bitmap.Config.Argb4444;
-				format = GameFramework.ImageFormat.ARGB4444;
+				format = Framework.ImageFormat.ARGB4444;
 				break;
-			case GameFramework.ImageFormat.ARGB8888:
+			case Framework.ImageFormat.ARGB8888:
 				config = Bitmap.Config.Argb8888;
-				format = GameFramework.ImageFormat.ARGB8888;
+				format = Framework.ImageFormat.ARGB8888;
 				break;
-			case GameFramework.ImageFormat.RGB565:
+			case Framework.ImageFormat.RGB565:
 				config = Bitmap.Config.Rgb565;
-				format = GameFramework.ImageFormat.RGB565;
+				format = Framework.ImageFormat.RGB565;
 				break;
 			}
 
