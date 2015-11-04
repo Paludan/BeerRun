@@ -1,0 +1,10 @@
+C:\Users\Tobias Morell\Documents\GitHub\beerrun\Framework\Framework\bin\Debug\Framework.dll
+C:\Users\Tobias Morell\Documents\GitHub\beerrun\Framework\Framework\bin\Debug\Framework.pdb
+C:\Users\Tobias Morell\Documents\GitHub\beerrun\Framework\Framework\bin\Debug\Framework.Framework.apk
+C:\Users\Tobias Morell\Documents\GitHub\beerrun\Framework\Framework\bin\Debug\Framework.Framework-Signed.apk
+C:\Users\Tobias Morell\Documents\GitHub\beerrun\Framework\Framework\obj\Debug\Framework.dll
+C:\Users\Tobias Morell\Documents\GitHub\beerrun\Framework\Framework\obj\Debug\Framework.pdb
+C:\Users\Tobias Morell\Documents\GitHub\beerrun\Framework\Framework\obj\Debug\android\bin\Framework.Framework.apk
+C:\Users\Tobias Morell\Documents\GitHub\beerrun\Framework\Framework\obj\Debug\res\values\strings.xml
+C:\Users\Tobias Morell\Documents\GitHub\beerrun\Framework\Framework\obj\Debug\R.cs.flag
+C:\Users\Tobias Morell\Documents\GitHub\beerrun\Framework\Framework\obj\Debug\uploadflags.txt
