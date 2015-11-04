@@ -1,0 +1,14 @@
+/Users/Lee/Documents/BeerRun/Implementation/Implementation/obj/Debug/MonoAndroid,Version=v5.0.AssemblyAttribute.cs
+/Users/Lee/Documents/BeerRun/Implementation/Implementation/obj/Debug/Implementation.obj.Debug.__AndroidLibraryProjects__.zip
+/Users/Lee/Documents/BeerRun/Implementation/Implementation/bin/Debug/Implementation.dll.mdb
+/Users/Lee/Documents/BeerRun/Implementation/Implementation/bin/Debug/Implementation.dll
+/Users/Lee/Documents/BeerRun/Implementation/Implementation/bin/Debug/Implementation.Implementation.apk
+/Users/Lee/Documents/BeerRun/Implementation/Implementation/obj/Debug/android/bin/Implementation.Implementation.apk
+/Users/Lee/Documents/BeerRun/Implementation/Implementation/obj/Debug/res/values/strings.xml
+/Users/Lee/Documents/BeerRun/Implementation/Implementation/obj/Debug/R.cs.flag
+/Users/Lee/Documents/BeerRun/Implementation/Implementation/bin/Debug/Implementation.Implementation-Signed.apk
+/Users/Lee/Documents/BeerRun/Implementation/Implementation/obj/Debug/uploadflags.txt
+/Users/Lee/Documents/BeerRun/Implementation/Implementation/obj/Debug/Implementation.dll
+/Users/Lee/Documents/BeerRun/Implementation/Implementation/obj/Debug/Implementation.dll.mdb
+/Users/Lee/Documents/BeerRun/Implementation/Implementation/bin/Debug/Framework.dll
+/Users/Lee/Documents/BeerRun/Implementation/Implementation/bin/Debug/Framework.dll.mdb
