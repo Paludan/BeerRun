@@ -1,11 +1,10 @@
 ﻿<Properties StartupItem="BeerRun\BeerRun.csproj" RefactoringSettings.EnableRefactorings="True">
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Android.Nexus 5 (Lollipop)" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="BeerRun\Assets\MusicManager.cs">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Android.Xamarin_Android_API_21" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="BeerRun\Screens\GameScreen.cs">
     <Files>
-      <File FileName="BeerRun\MainActivity.cs" Line="76" Column="6" />
-      <File FileName="BeerRun\Screens\GameScreen.cs" Line="14" Column="4" />
-      <File FileName="BeerRun\GameClasses\Background.cs" Line="1" Column="1" />
-      <File FileName="BeerRun\Assets\MusicManager.cs" Line="19" Column="49" />
+      <File FileName="BeerRun\MainActivity.cs" Line="22" Column="10" />
+      <File FileName="BeerRun\Screens\GameScreen.cs" Line="278" Column="20" />
+      <File FileName="..\Implementation\Implementation\AndroidGame.cs" Line="39" Column="40" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

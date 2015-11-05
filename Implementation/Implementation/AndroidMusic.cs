@@ -75,9 +75,11 @@ namespace Implementation
 		/// Gets or sets the volume.
 		/// </summary>
 		/// <value>The volume.</value>
-		public int Volume
+		public float Volume
 		{
-			get; set;
+			set {
+				mp.SetVolume(value, value);
+			}
 		}
 
 		/// <summary>

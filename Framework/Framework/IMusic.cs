@@ -8,7 +8,7 @@ namespace Framework
 		void Stop();
 		void Pause();
 
-		int Volume { get; set; }
+		float Volume { set; }
 		bool Playing { get; }
 		bool Stopped { get; }
 		bool Looping { get; set; }

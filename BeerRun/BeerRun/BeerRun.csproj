@@ -50,6 +50,14 @@
     <Compile Include="Screens\GameScreen.cs" />
     <Compile Include="GameClasses\Background.cs" />
     <Compile Include="Assets\MusicManager.cs" />
+    <Compile Include="Assets\PictureManager.cs" />
+    <Compile Include="Screens\LoadingScreen.cs" />
+    <Compile Include="Screens\MainMenu.cs" />
+    <Compile Include="Screens\SplashLoadingScreen.cs" />
+    <Compile Include="GameClasses\GameButton.cs" />
+    <Compile Include="GameClasses\Robot.cs" />
+    <Compile Include="GameClasses\Heliboy.cs" />
+    <Compile Include="GameClasses\Tile.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\AboutResources.txt" />
@@ -63,6 +71,7 @@
     <AndroidResource Include="Resources\drawable-xhdpi\Icon.png" />
     <AndroidResource Include="Resources\drawable-xxhdpi\Icon.png" />
     <AndroidResource Include="Resources\drawable-xxxhdpi\Icon.png" />
+    <AndroidResource Include="Resources\raw\map1.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Novell\Novell.MonoDroid.CSharp.targets" />
   <ItemGroup>
@@ -79,6 +88,7 @@
     <Folder Include="Resources\layout\" />
     <Folder Include="Screens\" />
     <Folder Include="GameClasses\" />
+    <Folder Include="Resources\raw\" />
   </ItemGroup>
   <ItemGroup>
     <AndroidAsset Include="Assets\background.png" />

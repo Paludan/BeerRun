@@ -12,6 +12,7 @@ using Framework;
 using Java.IO;
 using System.Text;
 using Android.Util;
+using System.IO;
 
 namespace BeerRun
 {
@@ -24,11 +25,11 @@ namespace BeerRun
 		public override Screen InitScreen {
 			get {
 				if (firstTimeCreate) {
-					Assets.Open (this);
+					MusicManager.Load (this);
 					firstTimeCreate = false;
 				}
 
-				var iStream = Resources.OpenRawResource ();
+				var iStream = Resources.OpenRawResource (Resource.Raw.map1);
 				map = convertStreamToString (iStream);
 
 				return new SplashLoadingScreen (this);
@@ -40,7 +41,12 @@ namespace BeerRun
 			CurrentScreen.BackButton ();
 		}
 
-		private string convertStreamToString(InputStream s)
+		/// <summary>
+		/// Converts the stream to a string.
+		/// </summary>
+		/// <returns>A string with the contents read from the stream.</returns>
+		/// <param name="s">S.</param>
+		private string convertStreamToString(Stream s)
 		{
 			BufferedReader br = new BufferedReader (new InputStreamReader(s));
 			StringBuilder sb = new StringBuilder ();

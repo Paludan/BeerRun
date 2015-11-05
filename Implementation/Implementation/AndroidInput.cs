@@ -35,9 +35,9 @@ namespace Implementation
 		{
 			return touchHandler.GetTouchY (pointer);
 		}
-		public System.Collections.Generic.List<TouchEvent> GetTouchEvents ()
+		public System.Collections.Generic.List<TouchEvent> TouchEvents
 		{
-			return touchHandler.TouchEvents;
+			get { return touchHandler.TouchEvents; }
 		}
 		#endregion
 	}

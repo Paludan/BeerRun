@@ -19,7 +19,7 @@ namespace Framework
 		bool IsTouchDown (int pointer);
 		int GetTouchX(int pointer);
 		int GetTouchY(int pointer);
-		List<TouchEvent> GetTouchEvents();
+		List<TouchEvent> TouchEvents { get; }
 	}
 }
 

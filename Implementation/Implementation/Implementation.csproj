@@ -53,6 +53,7 @@
     <Compile Include="AndroidSound.cs" />
     <Compile Include="JavaLangSystem.cs" />
     <Compile Include="MultiTouchHandler.cs" />
+    <Compile Include="Animation.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Novell\Novell.MonoDroid.CSharp.targets" />
   <ItemGroup>
