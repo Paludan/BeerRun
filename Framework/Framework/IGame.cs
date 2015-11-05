@@ -8,10 +8,9 @@ namespace Framework
 		IInput Input { get; }
 		IFileIO FileIO { get; }
 		IGraphics Graphics { get; }
-		Screen CurrentScreen { get; }
+		Screen CurrentScreen { get; set; }
 
-		void setScreen (Screen screen);
-		Screen getInitScreen ();
+		Screen InitScreen { get; }
 	}
 }
 

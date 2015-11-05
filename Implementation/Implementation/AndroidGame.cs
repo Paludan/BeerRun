@@ -15,6 +15,8 @@ namespace Implementation
 	[Activity (Label = "Implementation", MainLauncher = true, Icon = "@drawable/icon")]
 	public abstract class AndroidGame : Activity, IGame
 	{
+		public abstract Screen InitScreen { get; }
+
 		AndroidFastRenderView renderView;
 		IGraphics graphics;
 		IAudio audio;
@@ -50,18 +52,18 @@ namespace Implementation
 			fileIO = new AndroidFileIO (this);
 			audio = new AndroidAudio (this);
 			input = new AndroidInput (this, renderView, scaleX, scaleY);
-			screen = getInitScreen ();
+			screen = this.InitScreen;
 			SetContentView (renderView);
 
 			//Add a WakeLock to avoid the screen from going out
-			PowerManager powerManager = (PowerManager)GetSystemService (Context.PowerService);
-			wakeLock = powerManager.NewWakeLock (WakeLockFlags.Full, "SwordSlash");
+//			PowerManager powerManager = (PowerManager)GetSystemService (Context.PowerService);
+//			wakeLock = powerManager.NewWakeLock (WakeLockFlags.Full, "SwordSlash");
 		}
 
 		protected override void OnResume ()
 		{
 			base.OnResume();
-			wakeLock.Acquire ();
+			//wakeLock.Acquire ();
 			screen.Resume ();
 			renderView.Resume ();
 		}
@@ -69,7 +71,7 @@ namespace Implementation
 		protected override void OnPause ()
 		{
 			base.OnPause ();
-			wakeLock.Release ();
+			//wakeLock.Release ();
 			renderView.Pause ();
 			screen.Pause ();
 
@@ -78,31 +80,6 @@ namespace Implementation
 		}
 
 		#region IGame implementation
-		/// <summary>
-		/// Sets the screen to the one specified as argument.
-		/// </summary>
-		/// <param name="screen">Screen to set.</param>
-		public void setScreen (Screen screen)
-		{
-			if (screen == null)
-				throw new Java.Lang.IllegalArgumentException ("Screen must not be null");
-
-			this.screen.Pause ();
-			this.screen.Dispose ();
-			screen.Resume ();
-			screen.Update (0);
-			this.screen = screen;
-		}
-
-		/// <summary>
-		/// Gets the initial screen of the application.
-		/// </summary>
-		/// <returns>The initial screen.</returns>
-		public Screen getInitScreen ()
-		{
-			throw new NotImplementedException ();
-		}
-
 		/// <summary>
 		/// Gets the audio.
 		/// </summary>
@@ -150,6 +127,16 @@ namespace Implementation
 		public Screen CurrentScreen {
 			get {
 				return screen;
+			}
+			set {
+				if (screen == null)
+					throw new Java.Lang.IllegalArgumentException ("Screen must not be null");
+
+				this.screen.Pause ();
+				this.screen.Dispose ();
+				screen.Resume ();
+				screen.Update (0);
+				this.screen = screen;
 			}
 		}
 		#endregion

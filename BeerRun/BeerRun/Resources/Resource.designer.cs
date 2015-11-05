@@ -60,14 +60,11 @@ namespace BeerRun
 		public partial class String
 		{
 			
-			// aapt resource value: 0x7f030002
-			public const int app_name = 2130903042;
-			
 			// aapt resource value: 0x7f030001
-			public const int hello = 2130903041;
+			public const int app_name = 2130903041;
 			
 			// aapt resource value: 0x7f030000
-			public const int library_name = 2130903040;
+			public const int hello = 2130903040;
 			
 			static String()
 			{
