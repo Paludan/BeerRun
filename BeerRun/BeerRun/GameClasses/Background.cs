@@ -7,8 +7,15 @@ namespace BeerRun
 {
 	public class Background
 	{
-		public int x, y, _speedX;
+		private int _x, _y, _speedX;
+		public int x {
+			get { return _x; }
+		}
+		public int y {
+			get { return _y; }
+		}
 		public int speedX {
+			get { return _speedX; }
 			set { _speedX = value; }
 		}
 		private AndroidImage _bgImage;
@@ -16,10 +23,12 @@ namespace BeerRun
 			get { return _bgImage; }
 		}
 
-		public Background (int x, int y, AndroidImage image)
+		private Robot robot;
+
+		public Background (int x, int y, AndroidImage image, Robot r)
 		{
-			this.x = x;
-			this.y = y;
+			this._x = x;
+			this._y = y;
 			_speedX = 0;
 
 			this._bgImage = image;
@@ -27,10 +36,13 @@ namespace BeerRun
 
 		public void Update(float deltaTime)
 		{
-			x += _speedX;
+			if (robot.speedX <= 0)
+				this._speedX = 0;
+			
+			_x += _speedX;
 
-			if (x <= -2160)
-				x += 4320;
+			if (_x <= -2160)
+				_x += 4320;
 		}
 	}
 

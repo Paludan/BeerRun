@@ -34,7 +34,7 @@ namespace BeerRun
 		public override void Update (float deltaTime)
 		{
 			IGraphics g = Game.Graphics;
-			PictureManager.Pictures.Add("splash", g.NewImage ("splash.jpg", ImageFormat.RGB565));
+			PictureManager.Pictures.Add("splash", g.NewImage (@"splash.jpg", ImageFormat.RGB565));
 
 			Game.CurrentScreen = new LoadingScreen (Game);
 		}
@@ -61,7 +61,6 @@ namespace BeerRun
 		/// <remarks>No functionality is provided by this method in this class.</remarks>
 		public override void Resume ()
 		{
-			//Purposely left blank
 		}
 		/// <summary>
 		/// Releases all resource used by the <see cref="BeerRun.SplashLoadingScreen"/> object.

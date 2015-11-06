@@ -41,6 +41,10 @@ namespace BeerRun
 			CurrentScreen.BackButton ();
 		}
 
+		public static void Warn (string sender, string message){
+			Log.Warn (sender.ToString (), message);
+		}
+
 		/// <summary>
 		/// Converts the stream to a string.
 		/// </summary>

@@ -52,18 +52,18 @@ namespace Implementation
 			fileIO = new AndroidFileIO (this);
 			audio = new AndroidAudio (this);
 			input = new AndroidInput (this, renderView, scaleX, scaleY);
-			screen = this.InitScreen;
 			SetContentView (renderView);
+			CurrentScreen = this.InitScreen;
 
 			//Add a WakeLock to avoid the screen from going out
-//			PowerManager powerManager = (PowerManager)GetSystemService (Context.PowerService);
-//			wakeLock = powerManager.NewWakeLock (WakeLockFlags.Full, "SwordSlash");
+			PowerManager powerManager = (PowerManager)GetSystemService (Context.PowerService);
+			wakeLock = powerManager.NewWakeLock (WakeLockFlags.Full, "BeerRun");
 		}
 
 		protected override void OnResume ()
 		{
 			base.OnResume();
-			//wakeLock.Acquire ();
+			wakeLock.Acquire ();
 			screen.Resume ();
 			renderView.Resume ();
 		}
@@ -71,7 +71,7 @@ namespace Implementation
 		protected override void OnPause ()
 		{
 			base.OnPause ();
-			//wakeLock.Release ();
+			wakeLock.Release ();
 			renderView.Pause ();
 			screen.Pause ();
 
@@ -129,14 +129,15 @@ namespace Implementation
 				return screen;
 			}
 			set {
-				if (screen == null)
+				if (value == null)
 					throw new Java.Lang.IllegalArgumentException ("Screen must not be null");
 
 				this.screen.Pause ();
 				this.screen.Dispose ();
+
+				this.screen = value;
 				screen.Resume ();
 				screen.Update (0);
-				this.screen = screen;
 			}
 		}
 		#endregion

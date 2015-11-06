@@ -34,10 +34,10 @@ namespace BeerRun
 			: base (game)
 		{
 			//Initialize game-objects
-			bg = new Background(0, 0, PictureManager.Pictures["background"] as AndroidImage);
+			bg = new Background(0, 0, PictureManager.Pictures["background"] as AndroidImage, robot);
 
 			robot = new Robot (0, 0);
-			hb = new Heliboy (340, 360);
+			hb = new Heliboy (340, 360, bg, robot);
 
 			addCharacterAnimations ();
 			addHeliboyAnimations ();
@@ -113,7 +113,7 @@ namespace BeerRun
 							type = TileType.Air;
 							break;
 						}
-						Tile t = new Tile (j, i, type);
+						Tile t = new Tile (j, i, type, bg, robot);
 						tiles.Add (t);
 					}
 				}
@@ -255,7 +255,7 @@ namespace BeerRun
 
 			foreach (var projectile in robot.Projectiles) {
 				if (projectile.Visible)
-					projectile.Update ();
+					projectile.Update (new List<Enemy> {hb});
 				else
 					robot.Projectiles.Remove (projectile);
 			}

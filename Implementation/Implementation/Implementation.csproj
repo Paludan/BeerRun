@@ -54,6 +54,7 @@
     <Compile Include="JavaLangSystem.cs" />
     <Compile Include="MultiTouchHandler.cs" />
     <Compile Include="Animation.cs" />
+    <Compile Include="Collider.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Novell\Novell.MonoDroid.CSharp.targets" />
   <ItemGroup>

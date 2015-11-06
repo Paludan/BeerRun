@@ -3,24 +3,36 @@ using System;
 using Implementation;
 using Framework;
 using System.Collections.Generic;
+using Android.Graphics;
 
 namespace BeerRun
 {
-	internal enum TileType {
+	public enum TileType {
 		Air, GrassTop, GrassLeft, GrassRight, GrassBottom, Dirt
 	}
 
-	class Tile
+	public class Tile
 	{
 		public TileType Type;
 		public IImage Image;
+		private Background _bg;
+		Robot robot;
 
-		private int x, y;
+		private int _x, _y, _speedX;
+		public int y {
+			get { return _y; }
+		}
 
-		public Tile (int x, int y, TileType type)
+		private Rect boundary;
+
+		public Tile (int x, int y, TileType type, Background bg, Robot robot)
 		{
-			this.x = x;
-			this.y = y;
+			this._x = x * 40;
+			this._y = y * 40;
+			this._bg = bg;
+			this.robot = robot;
+
+			boundary = new Rect ();
 
 			this.Type = type;
 			findPicture ();
@@ -53,10 +65,28 @@ namespace BeerRun
 		}
 
 		public void Paint(IGraphics graphics){
-			graphics.DrawImage(Image, x, y);
+			graphics.DrawImage(Image, _x, _y);
 		}
 
 		public void Update(){
+			_speedX = _bg.speedX * 5;
+			_x += _speedX;
+
+			boundary.Set (_x, _y, _x + 40, _y + 40);
+
+			if (Type != TileType.Air && Rect.Intersects (boundary, robot.CollisionBoundary.Boundary)) {
+				checkVerticalCollision (robot.Colliders ["upper_body"], robot.Colliders ["lower_body"]);
+				checkHorizontalCollision (robot.Colliders ["left_hand"], robot.Colliders ["right_hand"], robot.Colliders ["left_foot"], robot.Colliders ["right_foot"]);
+			}
+		}
+
+		private void checkVerticalCollision (Collider rTop, Collider rBot){
+			if (Rect.Intersects (rBot.Boundary, boundary) && Type == TileType.GrassTop) {
+				robot.Landed (this);
+			}
+		}
+
+		private void checkHorizontalCollision (Collider hLeft, Collider hRight, Collider fLeft, Collider fRight){
 
 		}
 

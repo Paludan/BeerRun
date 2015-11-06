@@ -12,6 +12,25 @@ namespace BeerRun
 		{
 			
 		}
+
+		#region implemented abstract members of AbsEntity
+
+		public override void Die ()
+		{
+			//Moves the heliboy out of the screen
+			this._x = -100;
+		}
+
+		#endregion
+
+		#region implemented abstract members of Enemy
+
+		public override void Attack ()
+		{
+			//Purposly left blank
+		}
+
+		#endregion
 	}
 
 }

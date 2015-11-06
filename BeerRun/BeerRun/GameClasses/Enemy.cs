@@ -24,7 +24,7 @@ namespace BeerRun
 			follow ();
 			_speedX = bg.speedX * 5 + movementSpeed;
 
-			collisionBoundary.Set (_x - (Image.Width / 2), _y - (Image.Height / 2), _x + (Image.Width / 2), _y + (Image.Height / 2));
+			collisionBoundary.Boundary.Set (_x - (Image.Width / 2), _y - (Image.Height / 2), _x + (Image.Width / 2), _y + (Image.Height / 2));
 
 			//if (Rect.Intersects (collisionBoundary, robot.collosionBoundary))
 			//	checkCollision ();
