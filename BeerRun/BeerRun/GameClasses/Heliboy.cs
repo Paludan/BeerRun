@@ -5,9 +5,10 @@ using Framework;
 
 namespace BeerRun
 {
-	class Heliboy
+	class Heliboy : Enemy
 	{
-		public Heliboy (int x, int y)
+		public Heliboy (int x, int y, Background bg, Robot r)
+			: base (bg, r, x, y, PictureManager.Pictures ["heliboy1"])
 		{
 			
 		}

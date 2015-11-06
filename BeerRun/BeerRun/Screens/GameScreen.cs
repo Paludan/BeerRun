@@ -36,7 +36,7 @@ namespace BeerRun
 			//Initialize game-objects
 			bg = new Background(0, 0, PictureManager.Pictures["background"] as AndroidImage);
 
-			robot = new Robot ();
+			robot = new Robot (0, 0);
 			hb = new Heliboy (340, 360);
 
 			addCharacterAnimations ();
@@ -92,7 +92,28 @@ namespace BeerRun
 				for (int j = 0; j < width; j++) {
 					if (j < line.Length) {
 						char ch = line [j];
-						Tile t = new Tile (j, i, Char.GetNumericValue (ch));
+						TileType type;
+						switch (ch) {
+						case '8':
+							type = TileType.GrassTop;
+							break;
+						case '4':
+							type = TileType.GrassLeft;
+							break;
+						case '6':
+							type = TileType.GrassRight;
+							break;
+						case '2':
+							type = TileType.GrassBottom;
+							break;
+						case '5':
+							type = TileType.Dirt;
+							break;
+						default:
+							type = TileType.Air;
+							break;
+						}
+						Tile t = new Tile (j, i, type);
 						tiles.Add (t);
 					}
 				}
@@ -215,18 +236,18 @@ namespace BeerRun
 				}
 			}
 
-			updateRobot ();
+			updateRobot (deltaTime);
 			updateTiles ();
-			hb.Update ();
-			bg.Update ();
+			hb.Update (deltaTime);
+			bg.Update (deltaTime);
 			animate ();
 		}
 
-		private void updateRobot(){
+		private void updateRobot(float deltaTime){
 			if (robot.Lives <= 0)
 				state = GameState.GameOver;
 
-			robot.Update ();
+			robot.Update (deltaTime);
 			if (robot.Jumped)
 				currentCharacterSprite = PictureManager.Pictures ["character_jumped"];
 			else if (!robot.Jumped && !robot.Ducked)
@@ -239,7 +260,7 @@ namespace BeerRun
 					robot.Projectiles.Remove (projectile);
 			}
 
-			if (robot.CenterY < 500)
+			if (robot.x < 500)
 				state = GameState.GameOver;
 		}
 
@@ -252,7 +273,7 @@ namespace BeerRun
 				currentCharacterSprite = PictureManager.Pictures ["character_ducked"];
 				robot.Duck ();
 			} else if (shoot.Clicked (touchEvent) && !robot.Ducked && robot.ReadyToFire) {
-				robot.shoot ();
+				robot.Shoot ();
 			}
 
 			//Then handles moving
@@ -278,33 +299,176 @@ namespace BeerRun
 				tile.Update ();
 			}
 		}
-		#endregion
 
+		/// <summary>
+		/// Animate the figures of the game.
+		/// </summary>
+		private void animate(){
+			anim.Update (10);
+			hAnim.Update (50);
+		}
+
+		/// <summary>
+		/// Nullify this instance.
+		/// </summary>
+		private void nullify(){
+			robot = null;
+			hb = null;
+			bg = null;
+			paint = null;
+			anim = null;
+			hAnim = null;
+			currentCharacterSprite = null;
+
+			System.GC.Collect ();
+		}
+
+		/// <summary>
+		/// Goes to the menu.
+		/// </summary>
+		private void goToMenu(){
+			Game.CurrentScreen = new MainMenu (Game);
+		}
+		#endregion
+		#region Paint-methods
 		public override void Paint (float deltaTime)
 		{
-			IGraphics g = base.Game.Graphics;
+			IGraphics g = Game.Graphics;
 
+			//Draw background, tiles i.e.
 			g.DrawImage (bg.Image, bg.x, bg.y);
+			paintTiles (g);
+			paintProjectiles (g);
+
+			//Draw robot and enemies
+			robot.Paint (g);
+			hb.Paint (g);
+
+			//Draw UI-overlay
+			switch (state) {
+			case GameState.GameOver:
+				drawUIGameOver (g);
+				break;
+			case GameState.Paused:
+				drawUIPaused (g);
+				break;
+			case GameState.Ready:
+				drawUIReady (g);
+				break;
+			case GameState.Running:
+				drawUIRunning (g);
+				break;
+			}
 		}
 
+		/// <summary>
+		/// Paints the tiles unless they are 'air'-tiles.
+		/// </summary>
+		/// <param name="g">The graphics object used to draw with.</param>
+		private void paintTiles(IGraphics g){
+			foreach (var tile in tiles) {
+				if (tile.Type != TileType.Air)
+					tile.Paint (g);
+			}
+		}
+
+		/// <summary>
+		/// Paints the projectiles.
+		/// </summary>
+		/// <param name="g">The graphics object used to draw with.</param>
+		private void paintProjectiles(IGraphics g){
+			foreach (var p in robot.Projectiles) {
+				p.Paint ();
+			}
+		}
+
+		/// <summary>
+		/// Draws the user interface game over.
+		/// </summary>
+		/// <param name="g">The green component.</param>
+		private void drawUIGameOver(IGraphics g){
+			g.ClearScreen (Color.Black);
+			g.DrawString ("Tap to return", 400, 290, paint);
+			paint.TextSize = 100;
+			g.DrawString ("Game over!", 400, 240, paint);
+			paint.TextSize = 30;
+		}
+
+		/// <summary>
+		/// Draws the user interface when GameState is paused.
+		/// </summary>
+		/// <param name="g">The green component.</param>
+		private void drawUIPaused(IGraphics g){
+			//Darkens the screen
+			g.DrawARGB (155, 0, 0, 0);
+			//Adds text
+			paint.TextSize = 100;
+			g.DrawString("Resume", 400, 165, paint);
+			g.DrawString ("Menu", 400, 360, paint);
+
+			paint.TextSize = 30;
+		}
+
+		/// <summary>
+		/// Draws the user interface when GameState is ready.
+		/// </summary>
+		/// <param name="g">The graphics object used to paint with.</param>
+		private void drawUIReady(IGraphics g){
+			//Darkens the screen
+			g.DrawARGB (155, 0, 0, 0);
+			//Adds text
+			g.DrawString ("Tap to start", 400, 240, paint);
+		}
+
+		/// <summary>
+		/// Draws the user interface when GameState is running.
+		/// </summary>
+		/// <param name="g">The green component.</param>
+		private void drawUIRunning (IGraphics g){
+			IImage butImg = PictureManager.Pictures ["button"];
+			g.DrawImage (butImg, 0, 285, 0, 0, 65, 65);
+			g.DrawImage (butImg, 0, 350, 0, 65, 65, 65);
+			g.DrawImage (butImg, 0, 415, 0, 130, 65, 65);
+			g.DrawImage (butImg, 0, 0, 0, 195, 35, 35);
+		}
+
+		#endregion
+		/// <summary>
+		/// Pause the game.
+		/// </summary>
 		public override void Pause ()
 		{
-			throw new NotImplementedException ();
+			if (state == GameState.Running)
+				state = GameState.Paused;
 		}
 
+		/// <summary>
+		/// Resume the game.
+		/// </summary>
 		public override void Resume ()
 		{
-			
+			if (state == GameState.Paused)
+				state = GameState.Running;
 		}
 
+		/// <summary>
+		/// Releases all resource used by the <see cref="BeerRun.GameScreen"/> object.
+		/// </summary>
+		/// <remarks>Call <see cref="Dispose"/> when you are finished using the <see cref="BeerRun.GameScreen"/>. The
+		/// <see cref="Dispose"/> method leaves the <see cref="BeerRun.GameScreen"/> in an unusable state. After calling
+		/// <see cref="Dispose"/>, you must release all references to the <see cref="BeerRun.GameScreen"/> so the garbage
+		/// collector can reclaim the memory that the <see cref="BeerRun.GameScreen"/> was occupying.</remarks>
 		public override void Dispose ()
 		{
-			throw new NotImplementedException ();
+			nullify ();
 		}
 
+		/// <summary>
+		/// Indicate what should happen on the screen, when user hits back.
+		/// </summary>
 		public override void BackButton ()
 		{
-			throw new NotImplementedException ();
+			Pause ();
 		}
 
 		#endregion

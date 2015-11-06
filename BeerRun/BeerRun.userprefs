@@ -1,10 +1,13 @@
 ﻿<Properties StartupItem="BeerRun\BeerRun.csproj" RefactoringSettings.EnableRefactorings="True">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Android.Xamarin_Android_API_21" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="BeerRun\Screens\GameScreen.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="BeerRun\GameClasses\Robot.cs">
     <Files>
-      <File FileName="BeerRun\MainActivity.cs" Line="22" Column="10" />
-      <File FileName="BeerRun\Screens\GameScreen.cs" Line="278" Column="20" />
-      <File FileName="..\Implementation\Implementation\AndroidGame.cs" Line="39" Column="40" />
+      <File FileName="BeerRun\GameClasses\Tile.cs" Line="1" Column="1" />
+      <File FileName="BeerRun\GameClasses\AbsEntity.cs" Line="47" Column="31" />
+      <File FileName="BeerRun\GameClasses\Robot.cs" Line="9" Column="15" />
+      <File FileName="BeerRun\GameClasses\Projectile.cs" Line="23" Column="4" />
+      <File FileName="BeerRun\GameClasses\Heliboy.cs" Line="11" Column="24" />
+      <File FileName="BeerRun\GameClasses\Enemy.cs" Line="11" Column="19" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

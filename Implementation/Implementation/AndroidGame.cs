@@ -36,8 +36,8 @@ namespace Implementation
 			//Create a frameBuffer for the background
 			var rotation = WindowManager.DefaultDisplay.Rotation;
 			bool isPortrait = rotation == SurfaceOrientation.Rotation0 || rotation == SurfaceOrientation.Rotation180;
-			int frameBufferWidth = isPortrait ? 1280 : 1920;
-			int frameBufferHeight = isPortrait ? 1920 : 1280;
+			int frameBufferWidth = isPortrait ? 480 : 800;
+			int frameBufferHeight = isPortrait ? 800 : 480;
 			Bitmap frameBuffer = Bitmap.CreateBitmap (frameBufferWidth, frameBufferHeight, Bitmap.Config.Rgb565);
 
 			//Find screen size to calculate relative size

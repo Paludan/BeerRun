@@ -7,7 +7,10 @@ namespace BeerRun
 {
 	public class Background
 	{
-		public int x, y;
+		public int x, y, _speedX;
+		public int speedX {
+			set { _speedX = value; }
+		}
 		private AndroidImage _bgImage;
 		public AndroidImage Image {
 			get { return _bgImage; }
@@ -17,13 +20,17 @@ namespace BeerRun
 		{
 			this.x = x;
 			this.y = y;
+			_speedX = 0;
 
 			this._bgImage = image;
 		}
 
 		public void Update(float deltaTime)
 		{
-			x++;
+			x += _speedX;
+
+			if (x <= -2160)
+				x += 4320;
 		}
 	}
 

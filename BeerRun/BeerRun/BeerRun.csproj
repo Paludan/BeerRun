@@ -58,6 +58,9 @@
     <Compile Include="GameClasses\Robot.cs" />
     <Compile Include="GameClasses\Heliboy.cs" />
     <Compile Include="GameClasses\Tile.cs" />
+    <Compile Include="GameClasses\AbsEntity.cs" />
+    <Compile Include="GameClasses\Projectile.cs" />
+    <Compile Include="GameClasses\Enemy.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\AboutResources.txt" />
@@ -92,5 +95,24 @@
   </ItemGroup>
   <ItemGroup>
     <AndroidAsset Include="Assets\background.png" />
+    <AndroidAsset Include="Assets\button.jpg" />
+    <AndroidAsset Include="Assets\character.png" />
+    <AndroidAsset Include="Assets\character2.png" />
+    <AndroidAsset Include="Assets\character3.png" />
+    <AndroidAsset Include="Assets\down.png" />
+    <AndroidAsset Include="Assets\heliboy.png" />
+    <AndroidAsset Include="Assets\heliboy2.png" />
+    <AndroidAsset Include="Assets\heliboy3.png" />
+    <AndroidAsset Include="Assets\heliboy4.png" />
+    <AndroidAsset Include="Assets\heliboy5.png" />
+    <AndroidAsset Include="Assets\jumped.png" />
+    <AndroidAsset Include="Assets\menu.png" />
+    <AndroidAsset Include="Assets\menutheme.mp3" />
+    <AndroidAsset Include="Assets\splash.jpg" />
+    <AndroidAsset Include="Assets\tiledirt.png" />
+    <AndroidAsset Include="Assets\tilegrassbot.png" />
+    <AndroidAsset Include="Assets\tilegrassleft.png" />
+    <AndroidAsset Include="Assets\tilegrassright.png" />
+    <AndroidAsset Include="Assets\tilegrasstop.png" />
   </ItemGroup>
 </Project>
